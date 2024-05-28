@@ -13,14 +13,17 @@ void Order::AddInfo(std::string n, int a, float p, bool s) {
 }
 
 istream &operator>>(istream &is, Order &obj){
+    cout << "Enter 0 if you want to buy, 1 if you want to sell: ";
+    is >> obj.side;
     cout << "Enter name if the User: ";
     is >> obj.name;
     cout << "Enter amount of UAH: ";
     is >> obj.amount;
     cout << "Enter price for 1 UAH in USD: ";
     is >> obj.price;
-    cout << "Enter your side, 0 if you want to buy, 1 if you want to sell: ";
-    is >> obj.side;
+    if(obj.side == 1)
+        obj.price = -obj.price;
+
 
     return is;
 }
