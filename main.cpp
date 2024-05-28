@@ -1,16 +1,20 @@
 #include <iostream>
-#include "queue_sorted.h"
-#include "queue_sorted.cpp"
+#include "Order.h"
+//#include "Order.cpp"
+#include <queue>
 
 using namespace std;
 
+priority_queue<Order> sell;
+priority_queue<Order> buy;
+
 int main() {
-    queue_sorted<int> a;
-    a.Enqueue(100);
-    a.Enqueue(15);
-    a.Enqueue(-1);
-    a.Enqueue(-10);
-    a.Enqueue(-3);
-    a.Print();
+    Order a("vlad", 100, 0.1, false);
+    Order b;
+    sell.push(a);
+    b = sell.top();
+    cout << b;
+
     return 0;
 }
+
